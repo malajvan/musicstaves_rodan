@@ -636,23 +636,23 @@ PyObject* create_skeleton_segment(PointVector* pvec, PointVector* bpvec)
 
   // set dimension properties
   PyObject* prop;
-  prop = PyInt_FromLong(left);
+  prop = PyLong_FromLong(left);
   PyDict_SetItemString(segment_dict, "offset_x", prop);
   Py_DECREF(prop);
-  prop = PyInt_FromLong(top);
+  prop = PyLong_FromLong(top);
   PyDict_SetItemString(segment_dict, "offset_y", prop);
   Py_DECREF(prop);
   if (pvec->size()) {
-    prop = PyInt_FromLong(right - left + 1);
+    prop = PyLong_FromLong(right - left + 1);
   } else {
-    prop = PyInt_FromLong(0);
+    prop = PyLong_FromLong(0);
   }
   PyDict_SetItemString(segment_dict, "ncols", prop);
   Py_DECREF(prop);
   if (pvec->size()) {
-    prop = PyInt_FromLong(bot - top + 1);
+    prop = PyLong_FromLong(bot - top + 1);
   } else {
-    prop = PyInt_FromLong(0);
+    prop = PyLong_FromLong(0);
   }
   PyDict_SetItemString(segment_dict, "nrows", prop);
   Py_DECREF(prop);
@@ -1234,7 +1234,7 @@ void __parabola(const FloatPointVector& points, FloatVector* params)
 }
 
 /*****************************************************************************
- * Y=d*X²+e*X+f
+ * Y=d*Xï¿½+e*X+f
  *
  * always sets d to zero, so the resulting function is linear
  *

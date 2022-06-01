@@ -1,0 +1,176 @@
+
+skipping wrapper generation for musicstaves_plugins plugin (output up-to-date)
+skipping wrapper generation for staffdeformation plugin (output up-to-date)
+skipping wrapper generation for stable_path plugin (output up-to-date)
+skipping wrapper generation for line_tracking plugin (output up-to-date)
+skipping wrapper generation for evaluation plugin (output up-to-date)
+skipping wrapper generation for roach_tatem_plugins plugin (output up-to-date)
+skipping wrapper generation for skewed_runs plugin (output up-to-date)
+skipping wrapper generation for vector_field plugin (output up-to-date)
+skipping wrapper generation for staff_finding_miyao plugin (output up-to-date)
+skipping wrapper generation for skeleton_utilities plugin (output up-to-date)
+skipping wrapper generation for staff_removal_fujinaga plugin (output up-to-date)
+running build
+running build_py
+running build_ext
+building 'gamera.toolkits.musicstaves.plugins._musicstaves_plugins' extension
+x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -Iinclude -I/musicstaves_rodan/gamera/toolkits/musicstaves/plugins -Iinclude/plugins -I/usr/include/python3.7m/gamera -I/usr/local/include/python3.7m/gamera -I/usr/include/python3.7m/../gamera -I/usr/include/gamera -I/usr/include/python3.7m -c /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp -o build/temp.linux-x86_64-3.7/musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.o -Wall -O2 -std=c++11 -Wunused-variable -Wwrite-strings -Wdeprecated-declarations -Wunknown-pragmas -Wformat
+In file included from /usr/include/python3.7m/Python.h:100,
+                 from /usr/local/include/python3.7m/gamera/gameramodule.hpp:24,
+                 from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:4:
+/usr/include/python3.7m/longobject.h:163:37: error: ‘PyLongObject’ was not declared in this scope
+ PyAPI_FUNC(int) _PyLong_AsByteArray(PyLongObject* v,
+                                     ^~~~~~~~~~~~
+/usr/include/python3.7m/longobject.h:163:37: note: suggested alternative: ‘PyLong_Object’
+ PyAPI_FUNC(int) _PyLong_AsByteArray(PyLongObject* v,
+                                     ^~~~~~~~~~~~
+                                     PyLong_Object
+/usr/include/python3.7m/longobject.h:163:51: error: ‘v’ was not declared in this scope
+ PyAPI_FUNC(int) _PyLong_AsByteArray(PyLongObject* v,
+                                                   ^
+/usr/include/python3.7m/longobject.h:164:5: error: expected primary-expression before ‘unsigned’
+     unsigned char* bytes, size_t n,
+     ^~~~~~~~
+/usr/include/python3.7m/longobject.h:164:34: error: expected primary-expression before ‘n’
+     unsigned char* bytes, size_t n,
+                                  ^
+/usr/include/python3.7m/longobject.h:165:5: error: expected primary-expression before ‘int’
+     int little_endian, int is_signed);
+     ^~~
+/usr/include/python3.7m/longobject.h:165:24: error: expected primary-expression before ‘int’
+     int little_endian, int is_signed);
+                        ^~~
+/usr/include/python3.7m/longobject.h:165:37: error: expression list treated as compound expression in initializer [-fpermissive]
+     int little_endian, int is_signed);
+                                     ^
+In file included from /usr/include/python3.7m/Python.h:63,
+                 from /usr/local/include/python3.7m/gamera/gameramodule.hpp:24,
+                 from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:4:
+/usr/include/python3.7m/longobject.h:172:12: error: ‘PyLongObject’ does not name a type; did you mean ‘PyLong_Object’?
+ PyAPI_FUNC(PyLongObject *)_PyLong_FromNbInt(PyObject *);
+            ^~~~~~~~~~~~
+/usr/include/python3.7m/pyport.h:656:34: note: in definition of macro ‘PyAPI_FUNC’
+ #       define PyAPI_FUNC(RTYPE) RTYPE
+                                  ^~~~~
+In file included from /usr/include/python3.7m/Python.h:100,
+                 from /usr/local/include/python3.7m/gamera/gameramodule.hpp:24,
+                 from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:4:
+/usr/include/python3.7m/longobject.h:221:1: error: ‘_LONGOBJECT_H’ does not name a type; did you mean ‘Py_LONGOBJECT_H’?
+ _LONGOBJECT_H */
+ ^~~~~~~~~~~~~
+ Py_LONGOBJECT_H
+In file included from /usr/local/include/python3.7m/gamera/vigra/rgbvalue.hxx:48,
+                 from /usr/local/include/python3.7m/gamera/pixel.hpp:46,
+                 from /usr/local/include/python3.7m/gamera/gamera.hpp:53,
+                 from /usr/local/include/python3.7m/gamera/gameramodule.hpp:25,
+                 from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:4:
+/usr/local/include/python3.7m/gamera/vigra/static_assert.hxx:89:22: warning: unnecessary parentheses in declaration of ‘assertImpl’ [-Wparentheses]
+ failure ************ (Predicate::************
+                      ^
+In file included from /usr/local/include/python3.7m/gamera/vigra/colorconversions.hxx:45,
+                 from /usr/local/include/python3.7m/gamera/pixel.hpp:47,
+                 from /usr/local/include/python3.7m/gamera/gamera.hpp:53,
+                 from /usr/local/include/python3.7m/gamera/gameramodule.hpp:25,
+                 from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:4:
+/usr/local/include/python3.7m/gamera/vigra/functortraits.hxx:166:31: warning: ‘template<class _Operation> class std::binder1st’ is deprecated [-Wdeprecated-declarations]
+ VIGRA_DEFINE_STL_FUNCTOR(std::binder1st, VigraTrueType, VigraFalseType)
+                               ^~~~~~~~~
+/usr/local/include/python3.7m/gamera/vigra/functortraits.hxx:131:21: note: in definition of macro ‘VIGRA_DEFINE_STL_FUNCTOR’
+ class FunctorTraits<name<T> > \
+                     ^~~~
+In file included from /usr/include/c++/8/bits/stl_function.h:1368,
+                 from /usr/include/c++/8/string:48,
+                 from /usr/include/c++/8/stdexcept:39,
+                 from /usr/local/include/python3.7m/gamera/vigra/config.hxx:42,
+                 from /usr/local/include/python3.7m/gamera/vigra/rgbvalue.hxx:44,
+                 from /usr/local/include/python3.7m/gamera/pixel.hpp:46,
+                 from /usr/local/include/python3.7m/gamera/gamera.hpp:53,
+                 from /usr/local/include/python3.7m/gamera/gameramodule.hpp:25,
+                 from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:4:
+/usr/include/c++/8/backward/binders.h:108:11: note: declared here
+     class binder1st
+           ^~~~~~~~~
+In file included from /usr/local/include/python3.7m/gamera/vigra/colorconversions.hxx:45,
+                 from /usr/local/include/python3.7m/gamera/pixel.hpp:47,
+                 from /usr/local/include/python3.7m/gamera/gamera.hpp:53,
+                 from /usr/local/include/python3.7m/gamera/gameramodule.hpp:25,
+                 from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:4:
+/usr/local/include/python3.7m/gamera/vigra/functortraits.hxx:167:31: warning: ‘template<class _Operation> class std::binder2nd’ is deprecated [-Wdeprecated-declarations]
+ VIGRA_DEFINE_STL_FUNCTOR(std::binder2nd, VigraTrueType, VigraFalseType)
+                               ^~~~~~~~~
+/usr/local/include/python3.7m/gamera/vigra/functortraits.hxx:131:21: note: in definition of macro ‘VIGRA_DEFINE_STL_FUNCTOR’
+ class FunctorTraits<name<T> > \
+                     ^~~~
+In file included from /usr/include/c++/8/bits/stl_function.h:1368,
+                 from /usr/include/c++/8/string:48,
+                 from /usr/include/c++/8/stdexcept:39,
+                 from /usr/local/include/python3.7m/gamera/vigra/config.hxx:42,
+                 from /usr/local/include/python3.7m/gamera/vigra/rgbvalue.hxx:44,
+                 from /usr/local/include/python3.7m/gamera/pixel.hpp:46,
+                 from /usr/local/include/python3.7m/gamera/gamera.hpp:53,
+                 from /usr/local/include/python3.7m/gamera/gameramodule.hpp:25,
+                 from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:4:
+/usr/include/c++/8/backward/binders.h:143:11: note: declared here
+     class binder2nd
+           ^~~~~~~~~
+In file included from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:5:
+/usr/local/include/python3.7m/gamera/knnmodule.hpp: In function ‘int image_get_fv(PyObject*, double**, Py_ssize_t*)’:
+/usr/local/include/python3.7m/gamera/knnmodule.hpp:51:44: warning: ‘int PyObject_CheckReadBuffer(PyObject*)’ is deprecated [-Wdeprecated-declarations]
+  if (PyObject_CheckReadBuffer(x->m_features) < 0) {
+                                            ^
+In file included from /usr/include/python3.7m/Python.h:147,
+                 from /usr/local/include/python3.7m/gamera/gameramodule.hpp:24,
+                 from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:4:
+/usr/include/python3.7m/abstract.h:480:17: note: declared here
+ PyAPI_FUNC(int) PyObject_CheckReadBuffer(PyObject *obj)
+                 ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:5:
+/usr/local/include/python3.7m/gamera/knnmodule.hpp:51:44: warning: ‘int PyObject_CheckReadBuffer(PyObject*)’ is deprecated [-Wdeprecated-declarations]
+  if (PyObject_CheckReadBuffer(x->m_features) < 0) {
+                                            ^
+In file included from /usr/include/python3.7m/Python.h:147,
+                 from /usr/local/include/python3.7m/gamera/gameramodule.hpp:24,
+                 from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:4:
+/usr/include/python3.7m/abstract.h:480:17: note: declared here
+ PyAPI_FUNC(int) PyObject_CheckReadBuffer(PyObject *obj)
+                 ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:5:
+/usr/local/include/python3.7m/gamera/knnmodule.hpp:55:65: warning: ‘int PyObject_AsReadBuffer(PyObject*, const void**, Py_ssize_t*)’ is deprecated [-Wdeprecated-declarations]
+  if (PyObject_AsReadBuffer(x->m_features, (const void**)buf, len) < 0) {
+                                                                 ^
+In file included from /usr/include/python3.7m/Python.h:147,
+                 from /usr/local/include/python3.7m/gamera/gameramodule.hpp:24,
+                 from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:4:
+/usr/include/python3.7m/abstract.h:489:17: note: declared here
+ PyAPI_FUNC(int) PyObject_AsReadBuffer(PyObject *obj,
+                 ^~~~~~~~~~~~~~~~~~~~~
+In file included from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:5:
+/usr/local/include/python3.7m/gamera/knnmodule.hpp:55:65: warning: ‘int PyObject_AsReadBuffer(PyObject*, const void**, Py_ssize_t*)’ is deprecated [-Wdeprecated-declarations]
+  if (PyObject_AsReadBuffer(x->m_features, (const void**)buf, len) < 0) {
+                                                                 ^
+In file included from /usr/include/python3.7m/Python.h:147,
+                 from /usr/local/include/python3.7m/gamera/gameramodule.hpp:24,
+                 from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:4:
+/usr/include/python3.7m/abstract.h:489:17: note: declared here
+ PyAPI_FUNC(int) PyObject_AsReadBuffer(PyObject *obj,
+                 ^~~~~~~~~~~~~~~~~~~~~
+In file included from include/plugins/musicstaves_plugins.hpp:27,
+                 from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:7:
+/usr/local/include/python3.7m/gamera/plugins/image_utilities.hpp: In function ‘Gamera::Image* Gamera::nested_list_to_image(PyObject*, int)’:
+/usr/local/include/python3.7m/gamera/plugins/image_utilities.hpp:673:11: error: ‘PyLong_Check’ was not declared in this scope
+       if (PyLong_Check(pixel))
+           ^~~~~~~~~~~~
+/usr/local/include/python3.7m/gamera/plugins/image_utilities.hpp:673:11: note: suggested alternative: ‘PyLong__Check’
+       if (PyLong_Check(pixel))
+           ^~~~~~~~~~~~
+           PyLong__Check
+In file included from /musicstaves_rodan/gamera/toolkits/musicstaves/plugins/_musicstaves_plugins.cpp:7:
+include/plugins/musicstaves_plugins.hpp: In function ‘void Gamera::fill_horizontal_line_gaps(T&, std::size_t, std::size_t, bool)’:
+include/plugins/musicstaves_plugins.hpp:88:14: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+           if ((average <= percentage) && (average < *c1))
+              ^
+include/plugins/musicstaves_plugins.hpp: In function ‘void Gamera::fill_vertical_line_gaps(T&, std::size_t, std::size_t, bool)’:
+include/plugins/musicstaves_plugins.hpp:146:14: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+           if ((average <= percentage) && (average < image.get(Point(c, r - height / 2))))
+              ^
+error: command 'x86_64-linux-gnu-gcc' failed with exit status 1

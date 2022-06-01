@@ -157,7 +157,7 @@ IntVector* interruption_error(T &Gstaves, U &Sstaves, V &Skeletons) {
     PyObject *pyob;
     PyObject *skel=PyList_GetItem(Skeletons,i);
     pyob = PyObject_GetAttrString(skel,"left_x");
-    int x=PyInt_AsLong(pyob);
+    int x=PyLong_AsLong(pyob);
     Py_DECREF(pyob);
     PyObject *y_list=PyObject_GetAttrString(skel,"y_list");
     bool linked=false;
@@ -165,7 +165,7 @@ IntVector* interruption_error(T &Gstaves, U &Sstaves, V &Skeletons) {
     int nodes=0,g_nodes=0,s_nodes=0;
     // now lets walk along the skeleton to find interruptions
     for(int j=0;j<PyList_Size(y_list);++j,++x) {
-      int y=PyInt_AsLong(PyList_GetItem(y_list,j));
+      int y=PyLong_AsLong(PyList_GetItem(y_list,j));
       bool G_int_old = G_int, S_int_old = S_int;
       // the staffline has an interruption, if there is no pixel from
       // [x,y-2] to [x,y+2]
