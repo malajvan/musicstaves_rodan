@@ -1,0 +1,11 @@
+
+skipping wrapper generation for staff_finding_miyao plugin (output up-to-date)
+running install
+running build
+running build_py
+running build_ext
+running install_lib
+byte-compiling /usr/local/lib/python3.7/dist-packages/gamera/toolkits/musicstaves/stafffinder.py to stafffinder.cpython-37.pyc
+running install_egg_info
+Removing /usr/local/lib/python3.7/dist-packages/musicstaves-1.4.0.egg-info
+Writing /usr/local/lib/python3.7/dist-packages/musicstaves-1.4.0.egg-info
