@@ -18,11 +18,11 @@ if __name__ == '__main__':
       #from gamera.toolkits.musicstaves.plugins import roach_tatem_plugins
       from gamera.toolkits.musicstaves.plugins import *
    except ImportError:
-      print ("WARNING:")
-      print ("This `musicstaves` toolkit must be installed before generating")
-      print ("the documentation.  For now, the system will skip generating")
-      print ("documentation for the plugins.")
-      print ()
+      print "WARNING:"
+      print "This `musicstaves` toolkit must be installed before generating"
+      print "the documentation.  For now, the system will skip generating"
+      print "documentation for the plugins."
+      print
    else:
       # Step 2:
       # Generate documentation for this toolkit
