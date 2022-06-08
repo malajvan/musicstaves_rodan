@@ -894,14 +894,14 @@ PyObject* follow_staffwobble(T& image,
 
   // read input arguments
   pyob = PyObject_GetAttrString(skeleton,"left_x");
-  left_x = (int)PyLong_AsLong(pyob);
+  left_x = (int)PyInt_AsLong(pyob);
   Py_DECREF(pyob);
   pyob = PyObject_GetAttrString(skeleton,"y_list");
   if (!PyList_Check(pyob))
     throw std::runtime_error("follow_staffwobble_skeleton: y_list is no list");
   ny = (size_t)PyList_Size(pyob);
   for (size_t i=0; i<ny; i++) {
-    y_list.push_back(PyLong_AsLong(PyList_GetItem(pyob,i)));
+    y_list.push_back(PyInt_AsLong(PyList_GetItem(pyob,i)));
   }
   Py_DECREF(pyob);
   right_x = left_x + ny - 1;
@@ -976,10 +976,10 @@ PyObject* follow_staffwobble(T& image,
   pyob = PyObject_GetAttrString(skeleton,"__class__");
   PyObject* newskel = PyInstance_New(pyob, NULL, NULL);
   Py_DECREF(pyob);
-  PyObject_SetAttrString(newskel, "left_x", PyLong_FromLong(left_x));
+  PyObject_SetAttrString(newskel, "left_x", PyInt_FromLong(left_x));
   pyob = PyList_New(ny);
   for (size_t i=0; i<ny; i++) {
-    PyList_SetItem(pyob, i, PyLong_FromLong(y_new[i]));
+    PyList_SetItem(pyob, i, PyInt_FromLong(y_new[i]));
   }
   PyObject_SetAttrString(newskel, "y_list", pyob);
 
@@ -1125,7 +1125,7 @@ void convert_skeleton(PyObject *skel_py, Skeleton &skel)
   len_y = PyList_Size(pyob);
   for (x = 0; x < len_y; x++)
   {
-    skel.y_list.push_back(PyLong_AsLong(PyList_GetItem(pyob, x)));
+    skel.y_list.push_back(PyInt_AsLong(PyList_GetItem(pyob, x)));
   }
   Py_DECREF(pyob);
 }

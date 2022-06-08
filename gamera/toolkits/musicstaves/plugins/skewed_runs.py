@@ -46,7 +46,7 @@ Arguments:
     # necessary because this is the only way to specify default arguments
     def __call__(self, minangle, maxangle, height, points=[], direction='both'):
         if direction not in ['both','up','down']:
-            raise RuntimeError ("Invalid value for 'direction'")
+            raise RuntimeError, "Invalid value for 'direction'"
         return _skewed_runs.keep_tall_skewed_runs(\
             self, minangle, maxangle, height, points, direction)
     __call__ = staticmethod(__call__)

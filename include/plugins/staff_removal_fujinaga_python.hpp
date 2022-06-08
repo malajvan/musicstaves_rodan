@@ -38,13 +38,13 @@ PyObject* staff_to_python(Aomr::Staff& staff, size_t staff_no) {
   
   PyObject* staff_dict = PyDict_New();
 
-  PyObject* staff_no_py = PyLong_FromLong(long(staff_no));
+  PyObject* staff_no_py = PyInt_FromLong(long(staff_no));
   PyDict_SetItemString(staff_dict, "staffno", staff_no_py);
   Py_DECREF(staff_no_py);
   
   PyObject* staffline_list = PyList_New(staff.n_stafflines());
   for (size_t i = 0; i < staff.n_stafflines(); ++i)
-    PyList_SetItem(staffline_list, i, PyLong_FromLong(staff.staffline_pos[i]));
+    PyList_SetItem(staffline_list, i, PyInt_FromLong(staff.staffline_pos[i]));
   PyDict_SetItemString(staff_dict, "yposlist", staffline_list);
   Py_DECREF(staffline_list);
 
@@ -81,9 +81,9 @@ Aomr::Staff staff_from_python(Rect& original, PyObject* py_staff) {
   staff.staffline_pos.resize(size);
   for (int i = 0; i < size; ++i) {
     PyObject* value = PyList_GetItem(staffline_list, i);
-    if (!PyLong_Check(value))
+    if (!PyInt_Check(value))
       throw std::runtime_error("Invalid StaffObj");
-    staff.staffline_pos[i] = int(PyLong_AsLong(value));
+    staff.staffline_pos[i] = int(PyInt_AsLong(value));
   }
   Py_DECREF(staffline_list);
 
