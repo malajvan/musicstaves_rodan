@@ -699,7 +699,7 @@ with
 
         alllines = [ [staff, line[0], line[1]] for staff in allpoints.keys() \
                      for line in allpoints[staff].items()]
-        alllines.sort(sortlines)
+        alllines.sort(key=sortlines)
 
         # build up data structure
         self.linelist = []

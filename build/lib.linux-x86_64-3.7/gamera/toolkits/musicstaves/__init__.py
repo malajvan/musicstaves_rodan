@@ -21,7 +21,8 @@ from os import path
 from gamera import toolkit
 from gamera.args import *
 from gamera.core import *
-import plugins
+from gamera.plugin import *
+from . import plugins
 from . stafffinder_miyao import StaffFinder_miyao
 from . stafffinder_projections import StaffFinder_projections
 from . stafffinder_dalitz import StaffFinder_dalitz
