@@ -19,7 +19,6 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
 
-import exceptions
 from math import sqrt
 
 from gamera import toolkit
@@ -206,7 +205,7 @@ directly.
 The parameter *tolerance* controls how accurate the polygonal approximation
 is.
 """
-        raise RuntimeError, "Conversion not yet implemented"
+        raise RuntimeError ("Conversion not yet implemented")
 
     def to_skeleton(self):
         """Converts to ``StafflineSkeleton``. Thus simply returns *self*."""
@@ -429,7 +428,7 @@ Additional algorithm specific keyword are possible of course. If
 *num_lines* cannot be chosen in the algorithm, this option must
 be offered nevertheless (albeit with no effect).
 """
-        raise RuntimeError, "Module StaffFinder (virtual class): Method not implemented."
+        raise RuntimeError  ("Module StaffFinder (virtual class): Method not implemented.")
 
     ######################################################################
     # get_average

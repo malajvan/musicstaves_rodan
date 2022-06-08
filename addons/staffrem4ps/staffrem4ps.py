@@ -98,7 +98,7 @@ while i < len(sys.argv):
     elif sys.argv[i] == '-z':
         opt.compressed = True
     elif sys.argv[i] == '-h':
-        print opt.supported_creators(creators)
+        print (opt.supported_creators(creators))
         sys.exit(0)
     elif sys.argv[i][0] == '-':
         opt.error_exit()
@@ -175,7 +175,7 @@ if opt.markred:
             sys.exit(1)
 
 # file for modified output
-print "Write output to " + opt.outfile
+print ("Write output to " + opt.outfile)
 fout = open(opt.outfile,'w')
 
 # abc*2ps, mup

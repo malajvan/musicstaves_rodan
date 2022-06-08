@@ -23,7 +23,7 @@
 #----------------------------------------------------------------
 
 from gamera.plugin import *
-import _musicstaves_plugins
+from . import _musicstaves_plugins
 
 #----------------------------------------------------------------
 
@@ -270,16 +270,16 @@ as most frequent black vertical run.
         if slh == 0:
             slh = bwtmp.most_frequent_run('black', 'vertical')
         if (slh > 3):
-            print "scale image down by factor %4.2f" % (2.0/slh)
+            print ("scale image down by factor %4.2f" % (2.0/slh))
             bwtmp = bwtmp.scale(2.0/slh, 0)
         # find and remove rotation
         skew = bwtmp.rotation_angle_projections(-2,2)
         if (abs(skew[0]) > abs(skew[1])):
             print ("rot %0.4f degrees found ..." % skew[0]),
             retval = self.rotate(skew[0], rotatebordervalue)
-            print "and corrected"
+            print ("and corrected")
         else:
-            print "no rotation found"
+            print ("no rotation found")
             retval = self.image_copy()
         return retval
 

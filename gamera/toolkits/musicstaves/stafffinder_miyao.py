@@ -25,9 +25,9 @@ from gamera import toolkit
 from gamera.args import *
 from gamera.args import Point as PointArg # is also defined in gamera.core
 from gamera.core import *
-from stafffinder import StaffFinder as _virtual_StaffFinder
-from stafffinder import StafflineAverage, StafflineSkeleton, StafflinePolygon
-from equivalence_grouper import EquivalenceGrouper
+from . stafffinder import StaffFinder as _virtual_StaffFinder
+from . stafffinder import StafflineAverage, StafflineSkeleton, StafflinePolygon
+from . equivalence_grouper import EquivalenceGrouper
 #from gamera.toolkits.musicstaves.plugins import *
 
 ##############################################################################
@@ -132,8 +132,8 @@ somewhat more detailed.
                                                blackness=blackness,\
                                                pr_angle=prev_angle)
                 except:
-                    print "Error with anchorpoints", col1, cp1.anchorlist[i-1].y, col2, cp2.anchorlist[j-1].y
-                    raise RuntimeError, "Error"
+                    print ("Error with anchorpoints", col1, cp1.anchorlist[i-1].y, col2, cp2.anchorlist[j-1].y)
+                    raise RuntimeError ("Error")
                 g[i][j].value = min([ g[i-1][j-1].value + distance,\
                                      g[i-1][j].value + 1, g[i][j-1].value + 1 ])
                 g[i][j].distance = distance
@@ -274,7 +274,7 @@ with
                 elif g[i][j].value - 1 == g[i][j-1].value:
                     j = j-1
                 else:
-                    raise RuntimeError, "Error in backtracing distance matrix"
+                    raise RuntimeError  ("Error in backtracing distance matrix")
 
             # store angle info
             if nangle > 0:
@@ -382,7 +382,7 @@ with
                 if vlinknum[num] > maxval:
                     maxval = vlinknum[num]; maxind = num
             num_lines = maxind + 1
-            print "Number of lines per staff system:", num_lines
+            print ("Number of lines per staff system:", num_lines)
 
         # add vertikal links based upon staffspace_height
         for line in cplist:
@@ -721,10 +721,10 @@ with
         if debug > 1:
             total = 0.0
             for rt in runtimes:
-                print ("%-21s" % rt[0]), rt[1]
+                print (("%-21s" % rt[0]), rt[1])
                 total += rt[1]
-            print "%-21s------------------" % " "
-            print ("%-21s" % " "), total
+            print ("%-21s------------------" % " ")
+            print (("%-21s" % " "), total)
 
 ######################################################################
 # data structures for anchor points

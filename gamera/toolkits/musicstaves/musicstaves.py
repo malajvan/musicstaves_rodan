@@ -248,7 +248,7 @@ Additional algorithm specific keyword are possible of course. If
 *crossing_symbols* cannot be chosen in the algorithm, this option must
 be offered nevertheless (albeit with no effect).
 """
-		raise RuntimeError, "Module MusicStaves (virtual class): Method not implemented."
+		raise RuntimeError ("Module MusicStaves (virtual class): Method not implemented.")
 
 	######################################################################
 	# get_staffpos
@@ -289,4 +289,4 @@ blabla
           OMR processing.
 """
 
-		raise RuntimeError, "Module MusicStaves (virtual class): Method not implemented."
+		raise RuntimeError  ("Module MusicStaves (virtual class): Method not implemented.")

@@ -155,8 +155,8 @@ processing.
         #
 
         if debug > 0:
-            print
-            print "Getting staff skeletons..."
+            print ()
+            print ("Getting staff skeletons...")
 
         # Get the skeleton list
         skeleton_list = self.image.get_staff_skeleton_list( \
@@ -171,8 +171,8 @@ processing.
         if len(too_short_skeletons) > 0:
             
             if debug > 0:
-                print "   %i skeletons are too short. Removing." \
-                      % (len(too_short_skeletons))
+                print ("   %i skeletons are too short. Removing." \
+                      % (len(too_short_skeletons)))
 
             # Remove very short segments
             for s in too_short_skeletons:
@@ -200,7 +200,7 @@ processing.
         #
 
         if debug > 0:
-            print "Creating vertical connections..."
+            print ("Creating vertical connections...")
  
         connections = []
 	
@@ -250,7 +250,7 @@ processing.
                             seg1.up_links.append(seg2)
 
         if debug > 0:
-            print "   %i connections created." % (len(connections))
+            print ("   %i connections created." % (len(connections)))
                             
         #--------------------------------------------------------
         #
@@ -277,7 +277,7 @@ processing.
         #  connection.
 
         if debug > 0:
-            print "Grouping segments to staffs..."
+            print ("Grouping segments to staffs...")
 
         label = -1
         groups = []
@@ -307,7 +307,7 @@ processing.
                     neighbors.append(n)
 
                 elif n.label != label:
-                    raise RuntimeError, "Labelling error!"
+                    raise RuntimeError ("Labelling error!")
 
             for n in seg.down_links:
                 if n.label == None:
@@ -318,7 +318,7 @@ processing.
                     neighbors.append(n)
 
                 elif n.label != label:
-                    raise RuntimeError, "Labelling error!"
+                    raise RuntimeError ( "Labelling error!")
 
             # Process neighbors
             while len(neighbors) > 0:
@@ -335,7 +335,7 @@ processing.
                             new_neighbors.append(n)
 
                         elif n.label != label:
-                            raise RuntimeError, "Labelling error!"
+                            raise RuntimeError  ("Labelling error!")
 
                     for n in seg.down_links:
                         if n.label == None:
@@ -346,14 +346,14 @@ processing.
                             new_neighbors.append(n)
 
                         elif n.label != label:
-                            raise RuntimeError, "Labelling error!"
+                            raise RuntimeError ("Labelling error!")
 
                 neighbors = new_neighbors
 
             groups.append(group)
 
         if debug > 0:
-            print "   Found %i staffs." % (len(groups))
+            print ("   Found %i staffs." % (len(groups)))
 
         #--------------------------------------------------------
         #
@@ -370,7 +370,7 @@ processing.
         #  to substitute the overlapping range.
 
         if debug > 0:
-            print "Melting overlapping line segments..."
+            print ("Melting overlapping line segments...")
 
         melt_skeletons = []
 
@@ -402,7 +402,7 @@ processing.
                         if melted: break
 
         if debug > 0 and melt_count > 0:
-            print "   %d segments melted." % (melt_count)
+            print ("   %d segments melted." % (melt_count))
 
         #--------------------------------------------------------
         #
@@ -436,17 +436,17 @@ processing.
                 if c > max_count:
                     estimated_num_lines = n
                     max_count = c
-            print "num_lines estimated as ", estimated_num_lines
+            print ("num_lines estimated as ", estimated_num_lines)
 
         # remove staffs with fewer lines
         if debug > 0:
-            print "Removing staffs with fewer lines than", estimated_num_lines, "..."
+            print ("Removing staffs with fewer lines than", estimated_num_lines, "...")
         rem_groups = [g for g in groups \
                       if g.max_line - g.min_line + 1 < estimated_num_lines]
         for g in rem_groups: groups.remove(g)
         if debug > 0 and len(rem_groups) > 0:
-            print "   %i removed, %i staffs left." \
-                  % (len(rem_groups), len(groups))
+            print ("   %i removed, %i staffs left." \
+                  % (len(rem_groups), len(groups)))
 
         #--------------------------------------------------------
         #
@@ -462,7 +462,7 @@ processing.
         #
 
         if debug > 0:
-            print "Removing additional staff lines..."
+            print ("Removing additional staff lines...")
 
         lines_removed = 0
 
@@ -509,7 +509,7 @@ processing.
             # TODO: Check if groups have been seperated!
 
         if debug > 0 and lines_removed > 0:
-            print "   Removed %d lines." % (lines_removed)
+            print ("   Removed %d lines." % (lines_removed))
 
         #--------------------------------------------------------
         #
@@ -517,7 +517,7 @@ processing.
         #
 
         if debug > 0:
-            print "Removing embedded staffs..."
+            print ("Removing embedded staffs...")
 
         # sort groups line for line from left to right
         def _cmp_y(g,h):
@@ -568,8 +568,8 @@ processing.
             if g in groups:
                 groups.remove(g)
         if debug > 0 and len(rem_groups) > 0:
-            print "   %i removed, %i staffs left." \
-                  % (len(rem_groups), len(groups))
+            print ("   %i removed, %i staffs left." \
+                  % (len(rem_groups), len(groups)))
 
         #--------------------------------------------------------
         #
@@ -579,7 +579,7 @@ processing.
 
         if join_interrupted:
             if debug > 0:
-                print "Join interrupted staves..."
+                print ("Join interrupted staves...")
             # check whether consecutive groups follow each other
             # and how they could be linked
             # condition: distance < 2*staffspace_height
@@ -613,7 +613,8 @@ processing.
             for g in rem_groups: groups.remove(g)
 
             if debug > 0:
-                print "   %i group(s) joined." % len(rem_groups)
+                print ("   %i group(s) joined." % len(rem_groups))
+
 
 
         #--------------------------------------------------------
@@ -641,7 +642,7 @@ processing.
         #
 
         if debug > 0:
-            print "Connecting broken lines..."
+            print ("Connecting broken lines...")
 
         conn_skels = []
         conn_count = 0
@@ -670,7 +671,7 @@ processing.
                         g.segments.remove(s)
 
         if debug > 0 and conn_count > 0:
-            print "   %i connected" % (conn_count)
+            print ("   %i connected" % (conn_count))
 
         #--------------------------------------------------------
         #
@@ -681,8 +682,8 @@ processing.
 
             rgb = Image(self.image, RGB)
 
-            print
-            print "Drawing group backgrounds..."
+            print ()
+            print ("Drawing group backgrounds...")
             for g in groups:
                 color = RGBPixel(150 + (31 * g.label) % 106, \
                                  150 + (111 * (g.label + 1)) % 106, \
@@ -692,10 +693,10 @@ processing.
                                      (g.col_end, g.row_end), \
                                      color)
 
-            print "Drawing original image..."
+            print ("Drawing original image...")
             rgb.highlight(self.image, RGBPixel(0, 0, 0))
 
-            print "Highlighting staff line candidates..."
+            print ("Highlighting staff line candidates...")
             staff_skeleton = self.image.skeleton_list_to_image(skeleton_list)
             rgb.highlight(staff_skeleton, RGBPixel(255, 150, 0)) # orange
             staff_skeleton_short = self.image.skeleton_list_to_image(\
@@ -711,7 +712,7 @@ processing.
             black_runs.highlight(staff_skeleton, RGBPixel(0, 255, 0))
             black_runs.save_PNG("dalitzdebug_blackruns.png")
 
-            print "Highlighting group segments..."
+            print ("Highlighting group segments...")
             group_skeletons = []
             melted_skeletons = []
             conn_skeletons = []
@@ -723,15 +724,15 @@ processing.
             group_image = self.image.skeleton_list_to_image(group_skeletons)
             rgb.highlight(group_image, RGBPixel(0, 255, 0)) # green
 
-            print "Highlighting melted sections..."
+            print ("Highlighting melted sections...")
             melt_image = self.image.skeleton_list_to_image(melt_skeletons)
             rgb.highlight(melt_image, RGBPixel(0, 255, 255)) # cyan
 
-            print "Highlighting connections..."
+            print ("Highlighting connections...")
             conn_image = self.image.skeleton_list_to_image(conn_skels)
             rgb.highlight(conn_image, RGBPixel(255, 255, 0)) # yellow
 
-            print "Drawing segment markers..."
+            print ("Drawing segment markers...")
             for g in groups:
                 for seg in g.segments:
 
@@ -745,7 +746,7 @@ processing.
                                     self.staffline_height * 2, \
                                     3, color)
 
-            print "Drawing links..."
+            print ("Drawing links...")
 
             # All connections
 
@@ -765,7 +766,7 @@ processing.
                         rgb.draw_line((mid, row1), (mid, row2), \
                                       RGBPixel(255, 0, 200)) # pink
 
-            print "Writing file..."
+            print ("Writing file...")
             rgb.save_PNG("dalitzdebug_out.png")
 
         #--------------------------------------------------------
@@ -794,7 +795,7 @@ processing.
 
         if align_edges:
             if debug > 0:
-                print "Align edge points"
+                print ("Align edge points")
             for staff in self.linelist:
                 # find left/right most edge point
                 lefti = 0; left = self.image.ncols
@@ -831,8 +832,8 @@ processing.
                             x += 1
 
         if debug > 0:
-            print "Ready."
-            print
+            print ("Ready.")
+            print ()
 
 #----------------------------------------------------------------
 
@@ -923,8 +924,8 @@ class StaffSegment:
                 len_overlap = len_overlap + 1
                 
             else:
-                raise RuntimeError, \
-                      "Trying to melt non-overlapping segments!"
+                raise RuntimeError (\
+                      "Trying to melt non-overlapping segments!")
 
         if len(points) < 2:
             return
@@ -966,8 +967,8 @@ class StaffSegment:
                      melt.append(long(other.skeleton[1][col - other.col_start]))
                                        
             else:
-                raise RuntimeError, \
-                      "Trying to melt non-overlapping segments!"
+                raise RuntimeError ( \
+                      "Trying to melt non-overlapping segments!")
 			
         del self.skeleton
         self.skeleton = [min(self.col_start, other.col_start), skel]
@@ -987,8 +988,8 @@ class StaffSegment:
         skeleton of the connection."""
 
         if self.col_end >= other.col_start:
-            raise RuntimeError, \
-                  "Trying to connect overlapping segments!"
+            raise RuntimeError ( \
+                  "Trying to connect overlapping segments!")
 
         conn_skel = None
 
@@ -1070,7 +1071,7 @@ class StaffGroup:
             self.label = segment.label
 	    
         elif segment.label != self.label:
-            raise RuntimeError, "Illegal label of added segment!"
+            raise RuntimeError ("Illegal label of added segment!")
 
         self.segments.append(segment)
 
@@ -1085,7 +1086,7 @@ class StaffGroup:
         to a certain staff line."""
 
         if line < self.min_line or line > self.max_line:
-            raise RuntimeError, "Line out of range!"
+            raise RuntimeError ("Line out of range!")
 
         remove_segments = []
 

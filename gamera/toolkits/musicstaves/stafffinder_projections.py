@@ -358,7 +358,7 @@ with
                     num_lines = n
                     maxf = f
             if debug > 0:
-                print "Line number frequencies:", freq[1:]
+                print ("Line number frequencies:", freq[1:])
             self.logmsg("Lines per system autodetected as %d\n" \
                         % num_lines)
 
@@ -466,7 +466,7 @@ with
     def __get_gridpeaks(self, peaks, tolerance):
 
         if self.debug > 2:
-            print "Staff:", peaks
+            print ("Staff:", peaks)
         # pick largest peak as reference position
         refpeak = [0, 0.0]
         min_i = self.image.nrows
@@ -479,7 +479,7 @@ with
             if line[0] > max_i:
                 max_i = line[0]
         if self.debug > 2:
-            print "Refpeak:", refpeak
+            print ("Refpeak:", refpeak)
         lines = [refpeak[0]]
         # move upwards from reference peak along grid
         i = refpeak[0] - self.staffdistance

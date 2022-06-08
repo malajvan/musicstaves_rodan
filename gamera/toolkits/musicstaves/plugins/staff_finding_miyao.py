@@ -18,7 +18,7 @@
 
 from gamera.plugin import *
 from math import pi
-import _staff_finding_miyao
+from . import _staff_finding_miyao
 
 class miyao_candidate_points(PluginFunction):
         """Returns middle points of blackruns along *scanline_count*

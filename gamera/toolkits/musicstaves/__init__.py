@@ -22,16 +22,9 @@ from gamera import toolkit
 from gamera.args import *
 from gamera.core import *
 import plugins
-from musicstaves_rl_simple import MusicStaves_rl_simple
-from musicstaves_rl_fujinaga import MusicStaves_rl_fujinaga
-from musicstaves_rl_roach_tatem import MusicStaves_rl_roach_tatem
-from musicstaves_rl_carter import MusicStaves_rl_carter
-from musicstaves_linetracking import MusicStaves_linetracking
-from musicstaves_skeleton import MusicStaves_skeleton
 from stafffinder_miyao import StaffFinder_miyao
 from stafffinder_projections import StaffFinder_projections
 from stafffinder_dalitz import StaffFinder_dalitz
-from stafffinder_stable_path import StaffFinder_stable_path
 
 from gamera.gui import has_gui
 if has_gui.has_gui:
