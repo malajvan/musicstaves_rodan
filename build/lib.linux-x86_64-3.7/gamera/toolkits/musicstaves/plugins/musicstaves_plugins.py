@@ -24,7 +24,11 @@
 import sys
 [sys.path.append(i) for i in ['.', '..']]
 from gamera.plugin import *
-import _musicstaves_plugins 
+try:
+    from . import _musicstaves_plugins 
+except:
+    import _musicstaves_plugins
+
 
 #----------------------------------------------------------------
 
