@@ -15,10 +15,14 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
-
+import sys
+[sys.path.append(i) for i in ['.', '..']]
 from gamera.plugin import *
 from math import pi
-import _staff_finding_miyao
+try:
+    from . import _staff_finding_miyao
+except:
+    import _staff_finding_miyao
 
 class miyao_candidate_points(PluginFunction):
         """Returns middle points of blackruns along *scanline_count*

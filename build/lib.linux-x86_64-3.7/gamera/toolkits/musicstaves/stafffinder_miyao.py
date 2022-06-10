@@ -19,6 +19,7 @@
 from math import atan, atan2, tan, pi
 from sys import stdout, exit
 from time import time
+import functools
 
 from gamera.gui import has_gui
 from gamera import toolkit
@@ -29,6 +30,8 @@ from . stafffinder import StaffFinder as _virtual_StaffFinder
 from . stafffinder import StafflineAverage, StafflineSkeleton, StafflinePolygon
 from . equivalence_grouper import EquivalenceGrouper
 #from gamera.toolkits.musicstaves.plugins import *
+
+
 
 ##############################################################################
 #
@@ -699,7 +702,7 @@ with
 
         alllines = [ [staff, line[0], line[1]] for staff in allpoints.keys() \
                      for line in allpoints[staff].items()]
-        alllines.sort(sortlines)
+        alllines.sort(key=functools.cmp_to_key(sortlines))
 
         # build up data structure
         self.linelist = []
@@ -710,7 +713,7 @@ with
                 self.linelist.append(staff)
                 staff = []
             pg = StafflinePolygon()
-            pg.vertices = [ Point(p[0],p[1]) for p in line[2].points ]
+            pg.vertices = [ Point(int(p[0]),int(p[1])) for p in line[2].points ]
             staff.append(pg)
             laststaff = line[0]
         # do not forget last staff

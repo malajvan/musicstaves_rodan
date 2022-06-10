@@ -31,6 +31,8 @@ from . stafffinder import StafflineAverage, StafflineSkeleton, StafflinePolygon
 from . equivalence_grouper import EquivalenceGrouper
 #from gamera.toolkits.musicstaves.plugins import *
 
+
+
 ##############################################################################
 #
 #
@@ -711,7 +713,7 @@ with
                 self.linelist.append(staff)
                 staff = []
             pg = StafflinePolygon()
-            pg.vertices = [ Point(p[0],p[1]) for p in line[2].points ]
+            pg.vertices = [ Point(int(p[0]),int(p[1])) for p in line[2].points ]
             staff.append(pg)
             laststaff = line[0]
         # do not forget last staff
