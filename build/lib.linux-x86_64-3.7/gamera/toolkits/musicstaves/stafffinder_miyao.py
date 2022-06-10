@@ -19,6 +19,7 @@
 from math import atan, atan2, tan, pi
 from sys import stdout, exit
 from time import time
+import functools
 
 from gamera.gui import has_gui
 from gamera import toolkit
@@ -699,7 +700,7 @@ with
 
         alllines = [ [staff, line[0], line[1]] for staff in allpoints.keys() \
                      for line in allpoints[staff].items()]
-        alllines.sort(sortlines)
+        alllines.sort(key=functools.cmp_to_key(sortlines))
 
         # build up data structure
         self.linelist = []
