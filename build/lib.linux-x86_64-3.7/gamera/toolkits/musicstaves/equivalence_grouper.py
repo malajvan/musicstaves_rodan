@@ -103,7 +103,7 @@ same subset (equivalence class)."""
         """Returns an iterator returning each of the disjoint subsets as a
 list."""
         seen = set()
-        for elem, group in self._mapping.items():
+        for elem, group in self._mapping.iteritems():
             if elem not in seen:
                 yield group
                 seen.update(group)
